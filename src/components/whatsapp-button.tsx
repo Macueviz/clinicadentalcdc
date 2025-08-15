@@ -21,7 +21,7 @@ const WhatsAppIcon = () => (
 
 export default function WhatsAppButton() {
     // Placeholder number, replace with actual number
-    const phoneNumber = "34610719058";
+    const phoneNumber = "34669312898";
     const message = "Hola, me gustaría pedir una cita o solicitar más información.";
 
     return (

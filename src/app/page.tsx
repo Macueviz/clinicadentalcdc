@@ -44,11 +44,6 @@ export default function Home() {
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl">
             En Clínica Dental Cuevas, combinamos la última tecnología con un trato cercano y profesional para ofrecerte la mejor experiencia dental.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg"  className="font-bold">
-              <Link href="/contacto">Pide tu Cita</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -83,8 +78,8 @@ export default function Home() {
                 alt="Equipo de CDC"
                 width={600}
                 height={500}
-                className="w-full h-full object-cover"
                 data-ai-hint="friendly dentist"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>

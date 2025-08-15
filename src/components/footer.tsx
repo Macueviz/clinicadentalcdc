@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import Logo from '../images/logo-peque.png';
 
 const legalItems = [
     { href: '/politica-de-privacidad', label: 'Política de Privacidad' },
@@ -16,7 +17,8 @@ export default function Footer() {
           <div className="flex flex-col items-start space-y-4">
             <Link href="/">
               <Image
-                src="/images/logo peque.png"
+                src={Logo}
+                priority
                 alt="Clínica Dental Cuevas Logo"
                 width={150}
                 height={40}
@@ -26,7 +28,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">Cuidando de tu sonrisa con profesionalidad y cariño.</p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" asChild>
-                <a href="#" aria-label="Instagram">
+                <a href="https://www.instagram.com/clinicadentalcdcuevas/" aria-label="Instagram" target="_blank" >
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -57,7 +59,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <a href="tel:+3610719058" className="hover:text-primary">+34 610 719 058</a>
+                <a href="tel:+34669312898" className="hover:text-primary">+34 669 312 898</a>
               </li>
             </ul>
           </div>

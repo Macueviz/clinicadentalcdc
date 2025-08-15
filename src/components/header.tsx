@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Logo from "../images/logo-peque.png";
 
 const navItems = [
   { 
@@ -70,15 +71,18 @@ export default function Header() {
         <DropdownMenu>
           <DropdownMenuTrigger className={cn(
             'flex items-center gap-1 text-m font-medium transition-colors hover:text-primary',
-            pathname.startsWith(href) ? 'text-primary' : 'text-foreground/80',
+            pathname.startsWith(href) ? 'text-primary' : 'text-foreground',
             className
           )}>
             {label} <ChevronDown className="h-4 w-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent className="bg-background">
             {submenu.map((item) => (
               <DropdownMenuItem key={item.href}>
-                <Link href={item.href} className="w-full">
+                <Link 
+                  href={item.href} 
+                  className="w-full text-foreground hover:text-primary transition-colors"
+                >
                   {item.label}
                 </Link>
               </DropdownMenuItem>
@@ -94,7 +98,7 @@ export default function Header() {
         onClick={() => setIsMobileMenuOpen(false)}
         className={cn(
           'text-m font-medium transition-colors hover:text-primary',
-          pathname === href ? 'text-primary text-lg font-bold' : 'text-foreground/80',
+          pathname === href ? 'text-primary' : 'text-foreground',
           className
         )}
       >
@@ -111,24 +115,28 @@ export default function Header() {
       )}
     >
       {/* Desktop Header */}
-      <div className="container hidden md:flex h-16 items-center">
-        <Link href="/" className="mr-6">
+      <div className="container hidden lg:flex h-24 items-center justify-center px-4">
+        <Link href="/" className="mr-8">
           <Image
-            src="/images/logo peque.png"
+            src={Logo}
             alt="Clínica Dental Cuevas Logo"
-            width={150}
-            height={40}
-            className="h-10 w-auto"
+            width={280}
+            height={60}
+            className="h-12 w-auto"
           />
         </Link>
         
-        <nav className="flex items-center gap-6 flex-grow">
-          <div className="flex items-center gap-6">
+        <nav className="flex items-center gap-4 flex-grow max-w-6xl">
+          <div className="flex items-center gap-6 justify-center w-full">
             {navItems.map((item) => (
               item.submenu ? (
                 <NavLink key={item.href} {...item} />
               ) : (
-                <Link key={item.href} href={item.href} className="text-m font-medium transition-colors hover:text-primary">
+                <Link 
+                  key={item.href} 
+                  href={item.href} 
+                  className="text-m font-medium transition-colors hover:text-primary text-foreground"
+                >
                   {item.label}
                 </Link>
               )
@@ -136,19 +144,100 @@ export default function Header() {
           </div>
           
           <div className="flex items-center gap-4 ml-auto">
-            <div className="hidden md:flex flex-col items-end">
-              <span className="text-sm font-medium hidden min-[949px]:block">Llámanos y pide cita</span>
-              <span className="text-sm underline underline-offset-2 font-medium block min-[949px]:hidden max-[760px]:hidden">Llámanos</span>
-              <a href="tel:+34610719058" className="flex items-center gap-2 text-sm font-medium hover:text-primary">
-                <Phone className="h-4 w-4 mr-5" />
-                <span className="hidden min-[950px]:block">+34 610 719 058</span>
+            <div className="flex flex-col items-end min-w-[180px]">
+              <span className="text-sm font-medium mb-1">Llámanos</span>
+              <a href="tel:+34669312898" className="flex items-center gap-2 text-base font-bold hover:text-primary whitespace-nowrap">
+                <Phone className="h-4 w-4" />
+                <span>+34 669 312 898</span>
               </a>
             </div>
-            <Button asChild className="hidden md:flex">
+            <Button asChild className="rounded-full hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg whitespace-nowrap">
               <Link href="/contacto">Pedir Cita</Link>
             </Button>
           </div>
         </nav>
+      </div>
+
+      {/* Tablet Header (nuevo) */}
+      <div className="container hidden md:flex lg:hidden h-24 items-center justify-between px-4">
+        <Link href="/" className="flex items-center">
+          <Image
+            src={Logo}
+            alt="Clínica Dental Cuevas Logo"
+            width={150}
+            height={40}
+            className="h-10 w-auto"
+          />
+        </Link>
+        
+        <div className="flex items-center gap-4">
+          <a href="tel:+34669312898" className="flex items-center gap-2 text-base font-bold hover:text-primary">
+            <Phone className="h-5 w-5" />
+            <div className="flex flex-col">
+              <span className="hidden sm:block text-sm font-medium">Llámanos</span>
+              <span className="hidden sm:block font-bold">+34 669 312 898</span>
+            </div>
+          </a>
+          <Button asChild className="rounded-full whitespace-nowrap">
+            <Link href="/contacto">Pedir Cita</Link>
+          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="p-0">
+              <div className="flex flex-col h-full">
+                <div className="border-b p-4">
+                  <Image
+                    src={Logo}
+                    alt="Clínica Dental Cuevas Logo"
+                    width={140}
+                    height={35}
+                    className="h-8 w-auto"
+                  />
+                </div>
+                <nav className="flex-1 overflow-y-auto">
+                  <div className="flex flex-col py-4">
+                    {navItems.map((item) => (
+                      <div key={item.href} className="border-b border-border/50 last:border-none">
+                        {item.submenu ? (
+                          <button
+                            onClick={() => {/* Toggle submenu */}}
+                            className="flex items-center justify-between w-full p-4 text-base"
+                          >
+                            {item.label}
+                            <ChevronDown className="h-4 w-4" />
+                          </button>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            className="block p-4 text-base"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </nav>
+                {/* En el menú móvil, actualizar el número de teléfono del footer */}
+                <div className="border-t p-4 flex flex-col items-center text-center">
+                  <Button asChild className="w-full max-w-[200px] mb-4">
+                    <Link href="/pedir-cita">Pedir Cita</Link>
+                  </Button>
+                  <span className="text-sm font-medium mb-1">Llámanos</span>
+                  <a href="tel:+34669312898" className="flex items-center justify-center gap-2 text-base font-bold">
+                    <Phone className="h-4 w-4" />
+                    +34 669 312 898
+                  </a>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
 
       {/* Mobile Header */}
@@ -156,7 +245,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/logo peque.png"
+              src={Logo}
               alt="Clínica Dental Cuevas Logo"
               width={120}
               height={30}
@@ -165,16 +254,16 @@ export default function Header() {
           </Link>
           
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="tel:+34610719058" className="flex flex-col items-center">
-              <Phone className="h-3 w-3 text-foreground" />
-              <span className="text-xs text-foreground">Llamar</span>
+            <Button variant="ghost" size="sm" asChild className="min-w-[80px]">
+              <a href="tel:+34669312898" className="flex flex-col items-center">
+                <Phone className="h-4 w-4 text-foreground mb-1" />
+                <span className="text-xs text-foreground font-medium">Llamar</span>
               </a>
             </Button>
-            <Button variant="ghost" size="sm" asChild>
+            <Button variant="ghost" size="sm" asChild className="min-w-[80px]">
               <Link href="/pedir-cita" className="flex flex-col items-center">
-              <Calendar className="h-3 w-3 text-foreground" />
-              <span className="text-xs text-foreground">Pedir cita</span>
+                <Calendar className="h-4 w-4 text-foreground mb-1" />
+                <span className="text-xs text-foreground font-medium">Pedir cita</span>
               </Link>
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -187,7 +276,7 @@ export default function Header() {
                 <div className="flex flex-col h-full">
                   <div className="border-b p-4">
                     <Image
-                      src="/images/logo peque.png"
+                      src={Logo}
                       alt="Clínica Dental Cuevas Logo"
                       width={140}
                       height={35}
@@ -219,13 +308,15 @@ export default function Header() {
                       ))}
                     </div>
                   </nav>
+                  {/* En el menú móvil, actualizar el número de teléfono del footer */}
                   <div className="border-t p-4 flex flex-col items-center text-center">
-                    <Button asChild className="w-full max-w-[200px]">
+                    <Button asChild className="w-full max-w-[200px] mb-4">
                       <Link href="/pedir-cita">Pedir Cita</Link>
                     </Button>
-                    <a href="tel:+34610719058" className="flex items-center justify-center gap-2 mt-4 text-sm">
+                    <span className="text-sm font-medium mb-1">Llámanos</span>
+                    <a href="tel:+34669312898" className="flex items-center justify-center gap-2 text-base font-bold">
                       <Phone className="h-4 w-4" />
-                      +34 610 719 058
+                      +34 669 312 898
                     </a>
                   </div>
                 </div>
