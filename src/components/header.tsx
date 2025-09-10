@@ -116,13 +116,11 @@ export default function Header() {
     >
       {/* Desktop Header */}
       <div className="container hidden lg:flex h-24 items-center justify-center px-4">
-        <Link href="/" className="mr-8">
+        <Link href="/" className="mr-2">
           <Image
             src={Logo}
             alt="Clínica Dental Cuevas Logo"
-            width={280}
-            height={60}
-            className="h-12 w-auto"
+            className="h-20 w-auto"
           />
         </Link>
         
@@ -160,13 +158,11 @@ export default function Header() {
 
       {/* Tablet Header (nuevo) */}
       <div className="container hidden md:flex lg:hidden h-24 items-center justify-between px-4">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center mr-6">
           <Image
             src={Logo}
             alt="Clínica Dental Cuevas Logo"
-            width={150}
-            height={40}
-            className="h-10 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
         
@@ -193,8 +189,6 @@ export default function Header() {
                   <Image
                     src={Logo}
                     alt="Clínica Dental Cuevas Logo"
-                    width={140}
-                    height={35}
                     className="h-8 w-auto"
                   />
                 </div>
@@ -247,8 +241,6 @@ export default function Header() {
             <Image
               src={Logo}
               alt="Clínica Dental Cuevas Logo"
-              width={120}
-              height={30}
               className="h-10 w-auto"
             />
           </Link>
@@ -278,8 +270,6 @@ export default function Header() {
                     <Image
                       src={Logo}
                       alt="Clínica Dental Cuevas Logo"
-                      width={140}
-                      height={35}
                       className="h-8 w-auto"
                     />
                   </div>

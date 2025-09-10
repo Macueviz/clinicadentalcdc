@@ -14,9 +14,9 @@ const posts: Post[] = [
     slug: "como-mantener-una-buena-higiene-bucal",
     title: "Cómo Mantener una Buena Higiene Bucal en Casa",
     description: "Consejos prácticos y sencillos para cuidar tu sonrisa cada día y prevenir problemas dentales.",
-    author: "Dra. Elena García",
-    date: "2024-05-15",
-    image: "https://placehold.co/1200x600.png",
+    author: "Dr. Javier Cuevas",
+    date: "2025-08-15",
+    image: "/images/cepillado-dientes.jpg",
     imageHint: "brushing teeth bathroom",
     content: `
       <p>Mantener una buena higiene bucal es fundamental para prevenir caries, enfermedades de las encías y otros problemas de salud. No se trata solo de tener una sonrisa bonita, sino de cuidar tu bienestar general. Aquí te dejamos algunos consejos clave:</p>
@@ -35,9 +35,9 @@ const posts: Post[] = [
     slug: "beneficios-de-la-ortodoncia-invisible",
     title: "Los Beneficios de la Ortodoncia Invisible",
     description: "Descubre por qué los alineadores transparentes son una opción cada vez más popular para corregir la sonrisa.",
-    author: "Dra. Sofía Reyes",
-    date: "2024-04-22",
-    image: "https://placehold.co/1200x600.png",
+    author: "Dr. Javier Cuevas",
+    date: "2025-08-22",
+    image: "/images/ortodon-invisible.jpg",
     imageHint: "transparent dental aligner",
     content: `
       <p>La ortodoncia ha evolucionado mucho en los últimos años, y una de las innovaciones más destacadas es la ortodoncia invisible. Este sistema utiliza alineadores transparentes hechos a medida para mover los dientes gradualmente hasta la posición deseada. ¿Cuáles son sus ventajas?</p>
@@ -54,10 +54,10 @@ const posts: Post[] = [
   },
 ];
 
-export function getPosts(): Post[] {
+export async function getPosts(): Promise<Post[]> {
   return posts;
 }
 
-export function getPostBySlug(slug: string): Post | undefined {
+export async function getPostBySlug(slug: string): Promise<Post | undefined> {
   return posts.find((post) => post.slug === slug);
 }

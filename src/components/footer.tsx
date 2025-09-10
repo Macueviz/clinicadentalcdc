@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from './ui/button';
-import Logo from '../images/logo-peque.png';
+import Logo from '../images/logo peque 2.png';
 
 const legalItems = [
     { href: '/politica-de-privacidad', label: 'Política de Privacidad' },
@@ -22,7 +22,7 @@ export default function Footer() {
                 alt="Clínica Dental Cuevas Logo"
                 width={150}
                 height={40}
-                className="mb-2"
+                className="mb-2 h-32 w-auto"
               />
             </Link>
             <p className="text-sm text-muted-foreground">Cuidando de tu sonrisa con profesionalidad y cariño.</p>

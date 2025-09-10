@@ -4,17 +4,17 @@ import { getPostBySlug, getPosts } from '@/lib/blog';
 
 export async function generateStaticParams() {
   const posts = getPosts();
-  return posts.map((post) => ({
+  return (await posts).map((post) => ({
     slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata(params: { slug: string }) {
+  const post = await getPostBySlug(params.slug);
   if (!post) {
     return {
       title: 'Post no encontrado',
-    };
+    };  
   }
   return {
     title: `${post.title} | Sonrisa Nova`,
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug:string } }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage( params: { slug:string } ) {
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
@@ -34,7 +34,7 @@ export default function BlogPostPage({ params }: { params: { slug:string } }) {
       <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
         <div className="max-w-3xl mx-auto">
           <header className="mb-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
               {post.title}
             </h1>
             <div className="mt-4 text-sm text-muted-foreground">

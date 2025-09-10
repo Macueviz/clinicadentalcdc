@@ -22,35 +22,35 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Dirección</h3>
-                  <p>Calle Ficticia 123, 28080 Madrid, España</p>
+                  <p>Av. de Andalucía, 149, 29740 Torre del Mar, Málaga</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Teléfono</h3>
-                  <a href="tel:+34912345678" className="hover:text-primary transition-colors">+34 912 345 678</a>
+                  <a href="tel:+34669312898" className="hover:text-primary transition-colors">+34 669 312 898</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <a href="mailto:info@sonrisanova.com" className="hover:text-primary transition-colors">info@sonrisanova.com</a>
+                  <a href="mailto:info@cdc.com" className="hover:text-primary transition-colors">info@cdc.com</a>
                 </div>
               </div>
             </div>
             <div className="mt-8 rounded-lg overflow-hidden aspect-video shadow-md">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.64949944203!2d-3.703790184592475!3d40.4167753793649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422880a98380c9%3A0xad4b3f6a627c244d!2sPuerta%20del%20Sol!5e0!3m2!1ses!2ses!4v1620054705599!5m2!1ses!2ses"
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.0461811431027!2d-4.097555824211491!3d36.74079637125684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72535e724024c3%3A0x5a6f8ae01c7f808e!2sAv.%20de%20Andaluc%C3%ADa%2C%20149%2C%2029740%20Torre%20del%20Mar%2C%20M%C3%A1laga!5e0!3m2!1ses!2ses!4v1703171632799!5m2!1ses!2ses"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de Sonrisa Nova"
-              ></iframe>
+                title="Ubicación de Clinica dental cuevas"
+                ></iframe>
             </div>
           </div>
           <div className="bg-card p-8 rounded-lg shadow-lg">

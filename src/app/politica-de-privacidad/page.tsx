@@ -20,14 +20,32 @@ export default function PrivacyPolicyPage() {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                Bienvenido a Sonrisa Nova. Su privacidad es de suma importancia para nosotros. Esta Política de Privacidad describe cómo recopilamos, usamos, procesamos y divulgamos su información, incluida la información personal, en conjunto con su acceso y uso de nuestro sitio web.
+                De conformidad con lo establecido en el REGLAMENTO (UE) 2016/679 de protección de datos de carácter personal y la
+                Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos y garantía de los derechos digitales, le informamos que a
+                través de este sitio web no se recaban datos de carácter personal de los usuarios sin su conocimiento, ni se ceden a terceros.
               </p>
-              <p className="font-bold text-foreground">
-                IMPORTANTE: Este es un texto de ejemplo. Debe consultar con un asesor legal para asegurarse de que su Política de Privacidad cumple con todas las leyes y regulaciones aplicables, como el GDPR.
+              <p>
+                La web de la que es titular CLINICA DENTAL CUEVAS, SA contiene enlaces a sitios webs de terceros, cuyas políticas de
+                privacidad son ajenas a las de CLINICA DENTAL CUEVAS, SA.
               </p>
+              <p>
+                Al acceder a tales sitios web usted puede decidir si acepta sus políticas de privacidad y de cookies. Con carácter general,
+                si navega por internet usted puede aceptar o rechazar las cookies de terceros desde las opciones de configuración de su
+                navegador.
+              </p>
+
+            <div className="bg-muted p-6 rounded-lg my-8">
+              <h2 className="text-xl font-semibold mb-4">Responsable del tratamiento</h2>
+                <ul className="space-y-2">
+                  <li><strong>Nombre:</strong> CLÍNICA DENTAL CUEVAS</li>
+                  <li><strong>Dirección:</strong> Av. de Andalucía, 149, 29740 Torre del Mar, Málaga</li>
+                  <li><strong>Teléfono:</strong> +34 669 312 898</li>
+                  <li><strong>Email DPD:</strong> info@cdc.es</li>
+                </ul>
+          </div>
             </CardContent>
           </Card>
-          
+
           <Card className="mt-8 shadow-lg">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">1. Información que Recopilamos</CardTitle>
@@ -52,12 +70,12 @@ export default function PrivacyPolicyPage() {
             </CardContent>
           </Card>
 
-           <Card className="mt-8 shadow-lg">
+          <Card className="mt-8 shadow-lg">
             <CardHeader>
               <CardTitle className="font-headline text-2xl">3. Sus Derechos</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
-              <p>Usted tiene derecho a acceder, corregir o eliminar su información personal. También puede oponerse al procesamiento de su información personal. Para ejercer estos derechos, por favor contáctenos a través de <a href="mailto:info@sonrisanova.com" className="text-primary hover:underline">info@sonrisanova.com</a>.</p>
+              <p>Usted tiene derecho a acceder, corregir o eliminar su información personal. También puede oponerse al procesamiento de su información personal. Para ejercer estos derechos, por favor contáctenos a través de <a href="mailto:info@cdc.com" className="text-primary hover:underline">info@cdc.com</a>.</p>
             </CardContent>
           </Card>
         </div>
