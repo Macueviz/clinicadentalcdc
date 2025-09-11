@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import { Button } from "@/componentes/ui/button";
+import { Card, CardContent, CardDescription, CardTitle } from "@/componentes/ui/card";
 import { CheckCircle, Users, Smile, Stethoscope } from "lucide-react";
 import Image from "next/image";
-import dentalClinicImage from "../images/pexels-karolina-grabowska-6627353.jpg";
-import dentalClinicTreatment from "../images/jonathan-borba-v_2FRXEba94-unsplash.jpg";
+import dentalClinicImage from "../imagenes/pexels-karolina-grabowska-6627353.jpg";
+import dentalClinicTreatment from "../imagenes/jonathan-borba-v_2FRXEba94-unsplash.jpg";
 import Link from "next/link";
 
 const treatments = [

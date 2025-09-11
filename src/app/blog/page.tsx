@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPosts } from '@/lib/blog';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { obtenerArticulos } from '@/utilidades/blog';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/componentes/ui/card';
+import { Button } from '@/componentes/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 export default async function BlogPage() {
-  const posts = await getPosts();
+  const articulos = await obtenerArticulos();
 
   return (
     <div className="bg-background">
@@ -21,34 +21,34 @@ export default async function BlogPage() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <Card key={post.slug} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Link href={`/blog/${post.slug}`}>
+          {articulos.map((articulo) => (
+            <Card key={articulo.slug} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Link href={`/blog/${articulo.slug}`}>
                   <Image
-                    src={post.image}
-                    alt={post.title}
+                    src={articulo.image}
+                    alt={articulo.title}
                     width={400}
                     height={250}
                     className="w-full object-cover aspect-video"
-                    data-ai-hint={post.imageHint}
+                    data-ai-hint={articulo.imageHint}
                   />
               </Link>
               <CardHeader>
                 <CardTitle className="font-headline text-xl leading-snug">
-                  <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
-                    {post.title}
+                  <Link href={`/blog/${articulo.slug}`} className="hover:text-primary transition-colors">
+                    {articulo.title}
                   </Link>
                 </CardTitle>
-                <CardDescription>{post.description}</CardDescription>
+                <CardDescription>{articulo.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow"></CardContent>
               <CardFooter className="flex justify-between items-center text-sm text-muted-foreground">
                 <div>
-                  <p className="font-semibold">{post.author}</p>
-                  <p>{new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                  <p className="font-semibold">{articulo.author}</p>
+                  <p>{new Date(articulo.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                 </div>
                 <Button variant="ghost" size="icon" asChild>
-                    <Link href={`/blog/${post.slug}`} aria-label={`Leer más sobre ${post.title}`}>
+                    <Link href={`/blog/${articulo.slug}`} aria-label={`Leer más sobre ${articulo.title}`}>
                         <ArrowRight className="h-5 w-5" />
                     </Link>
                 </Button>
