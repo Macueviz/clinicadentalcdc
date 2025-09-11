@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/componentes/ui/card";
 import { Stethoscope, Smile, HeartPulse, ShieldCheck, Gem, UserCheck } from "lucide-react";
 
 const treatments = [

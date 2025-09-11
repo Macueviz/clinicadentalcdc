@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { cn } from '@/lib/utils';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import { Toaster } from '@/components/ui/toaster';
-import WhatsAppButton from '@/components/whatsapp-button';
-import CookieBanner from '@/components/cookie-banner';
+import { cn } from '@/utilidades/utils';
+import Cabecera from '@/componentes/Cabecera';
+import PiePagina from '@/componentes/PiePagina';
+import { Toaster } from '@/componentes/ui/toaster';
+import BotonWhatsApp from '@/componentes/BotonWhatsApp';
+import BannerCookies from '@/componentes/BannerCookies';
 
 export const metadata: Metadata = {
   title: 'Clinica Dental Cuevas',
@@ -27,12 +27,12 @@ export default function RootLayout({
       </head>
       <body className={cn('min-h-screen bg-background font-body antialiased')}>
         <div className="relative flex min-h-screen flex-col">
-          <Header />
+          <Cabecera />
           <main className="flex-1">{children}</main>
-          <Footer />
+          <PiePagina />
         </div>
-        <WhatsAppButton />
-        <CookieBanner />
+        <BotonWhatsApp />
+        <BannerCookies />
         <Toaster />
       </body>
     </html>

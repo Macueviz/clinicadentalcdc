@@ -1,39 +1,24 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/componentes/ui/avatar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/componentes/ui/card";
 
 const teamMembers = [
   {
-    name: "Dra. Elena García",
+    name: "Dr. Javier Cuevas",
     specialty: "Odontología General y Estética",
-    description: "Con más de 15 años de experiencia, la Dra. García es experta en diseñar sonrisas y mejorar la salud bucal de sus pacientes.",
+    description: "Con más de 15 años de experiencia, el Dr. Cuevas es experto en diseñar sonrisas y mejorar la salud bucal de sus pacientes.",
     avatar: "https://placehold.co/150x150.png",
-    initials: "EG",
-    aiHint: "professional woman smiling"
+    initials: "JC",
+    aiHint: "professional man smiling"
   },
   {
-    name: "Dr. Carlos Martínez",
+    name: "Asier Argote",
     specialty: "Implantología y Cirugía Oral",
     description: "Especialista en la rehabilitación de sonrisas mediante implantes dentales y cirugía oral avanzada. Su precisión es su mayor virtud.",
     avatar: "https://placehold.co/150x150.png",
     initials: "CM",
     aiHint: "professional man smiling"
   },
-  {
-    name: "Dra. Sofía Reyes",
-    specialty: "Ortodoncia",
-    description: "Apasionada por la ortodoncia, la Dra. Reyes ayuda a pacientes de todas las edades a conseguir una sonrisa alineada y funcional.",
-    avatar: "https://placehold.co/150x150.png",
-    initials: "SR",
-    aiHint: "friendly woman smiling"
-  },
-  {
-    name: "Laura Jiménez",
-    specialty: "Higienista Dental",
-    description: "Laura es nuestra experta en prevención y mantenimiento de la salud de las encías. Su trato amable hace que cada visita sea agradable.",
-    avatar: "https://placehold.co/150x150.png",
-    initials: "LJ",
-    aiHint: "dental hygienist"
-  },
+  
 ];
 
 export default function TeamPage() {
