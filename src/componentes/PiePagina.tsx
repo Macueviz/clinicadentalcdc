@@ -12,7 +12,7 @@ const legalItems = [
 export default function PiePagina() {
   return (
     <footer className="bg-card text-card-foreground border-t">
-      <div className="container max-w-5xl py-12 px-4 md:px-6">
+      <div className="container mx-auto max-w-7xl py-12 px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-start space-y-4">
             <Link href="/">
@@ -55,7 +55,7 @@ export default function PiePagina() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <a href="mailto:info@cdc.com" className="hover:text-primary">info@cdc.com</a>
+                <a href="mailto:info@clinicadentalcdcuevas.com" className="hover:text-primary">info@clinicadentalcdcuevas.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />

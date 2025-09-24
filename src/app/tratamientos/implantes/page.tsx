@@ -2,6 +2,8 @@ import { Button } from "@/componentes/ui/button";
 import { Card, CardContent } from "@/componentes/ui/card";
 import { CheckCircle, Clock, ThumbsUp, HeartPulse } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import implante from "../../../../public/images/implante.jpg";
 
 export default function ImplantesDentales() {
   const benefits = [
@@ -26,10 +28,14 @@ export default function ImplantesDentales() {
     <>
       <section className="relative h-[40vh] flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <img
-          src="/images/implantes-hero.jpg"
+        <Image
+          src={implante}
           alt="Implantes Dentales"
-          className="absolute inset-0 w-full h-full object-cover"
+          priority
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center 20%"
+          className="z-0 scale-[1]"
         />
         <div className="relative z-20 container px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Implantes Dentales</h1>
@@ -40,7 +46,7 @@ export default function ImplantesDentales() {
       </section>
 
       <section className="py-16 container">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-start ml-5">
           <div>
             <h2 className="text-3xl font-bold mb-6">¿Qué son los implantes dentales?</h2>
             <p className="text-lg mb-6">
@@ -67,7 +73,7 @@ export default function ImplantesDentales() {
 
           <div className="space-y-6">
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-6 ">
                 <h3 className="text-xl font-bold mb-4">El Procedimiento</h3>
                 <ol className="space-y-4">
                   <li className="flex items-start gap-3">

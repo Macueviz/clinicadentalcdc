@@ -14,7 +14,11 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-1 gap-12">
+          <div className="bg-card p-8 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-headline font-bold mb-6 ">Pide tu Cita</h2>
+            <ContactForm />
+          </div>
           <div className="bg-card p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-headline font-bold mb-6">Información de Contacto</h2>
             <div className="space-y-6 text-muted-foreground">
@@ -36,7 +40,7 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <a href="mailto:info@cdc.com" className="hover:text-primary transition-colors">info@cdc.com</a>
+                  <a href="mailto:info@clinicadentalcdcuevas.com" className="hover:text-primary transition-colors">info@clinicadentalcdcuevas.com</a>
                 </div>
               </div>
             </div>
@@ -52,10 +56,6 @@ export default function ContactPage() {
                 title="Ubicación de Clinica dental cuevas"
                 ></iframe>
             </div>
-          </div>
-          <div className="bg-card p-8 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-headline font-bold mb-6">Pide tu Cita</h2>
-            <ContactForm />
           </div>
         </div>
       </div>
