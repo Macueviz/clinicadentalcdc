@@ -8,9 +8,32 @@ import BotonWhatsApp from '@/componentes/BotonWhatsApp';
 import BannerCookies from '@/componentes/BannerCookies';
 
 export const metadata: Metadata = {
-  title: 'Clinica Dental Cuevas',
-  description: 'Clínica dental moderna y profesional. Ofrecemos una amplia gama de tratamientos para cuidar de tu sonrisa.',
-};
+  title: 'Clínica Dental Cuevas | Implantes y Ortodoncia en Torre del Mar',
+  description: 'Tu clínica dental de confianza en Torre del Mar, Málaga. Especialistas en implantes, ortodoncia y estética dental. Más de 15 años cuidando sonrisas.',
+  keywords: 'dentista Torre del Mar, clínica dental Málaga, implantes dentales, ortodoncia invisible, estética dental',
+  openGraph: {
+    title: 'Clínica Dental Cuevas | Tu Dentista de Confianza en Torre del Mar',
+    description: 'Especialistas en implantes y ortodoncia en Torre del Mar. Tratamientos personalizados con la última tecnología y trato cercano.',
+    url: 'https://www.clinicadentalcdcuevas.com',
+    siteName: 'Clínica Dental Cuevas',
+    locale: 'es_ES',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'tu-código-de-verificación',
+  },
+}
 
 export default function RootLayout({
   children,

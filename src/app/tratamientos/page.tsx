@@ -18,19 +18,9 @@ const treatments = [
     icon: <HeartPulse className="h-10 w-10 text-primary" />,
   },
   {
-    title: "Endodoncia",
-    description: "Salvamos dientes dañados por caries profundas o traumatismos, eliminando la pulpa infectada para evitar la extracción.",
-    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-  },
-  {
     title: "Estética Dental",
     description: "Mejoramos la apariencia de tu sonrisa con tratamientos como blanqueamiento dental, carillas de porcelana y contorneado estético.",
     icon: <Gem className="h-10 w-10 text-primary" />,
-  },
-  {
-    title: "Odontopediatría",
-    description: "Cuidamos la salud bucodental de los más pequeños, desde la prevención y educación hasta el tratamiento de problemas dentales infantiles.",
-    icon: <UserCheck className="h-10 w-10 text-primary" />,
   },
 ];
 

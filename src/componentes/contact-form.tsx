@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { useFormStatus } from "react-dom";
-import { useActionState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
+import emailjs from "emailjs-com";
 
 import { Button } from "@/componentes/ui/button";
 import { Input } from "@/componentes/ui/input";
@@ -14,7 +13,11 @@ import { Textarea } from "@/componentes/ui/textarea";
 import { Checkbox } from "@/componentes/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/componentes/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { submitContactForm, type FormState } from "@/app/actions";
+
+// ⚠️ REEMPLAZA con tus credenciales de EmailJS
+const SERVICE_ID = "service_s6mzomi";
+const TEMPLATE_ID = "template_nnfijjl";
+const PUBLIC_KEY = "xhXGERlFoUMjSRL0e";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "El nombre es requerido." }),
@@ -25,23 +28,9 @@ const contactSchema = z.object({
   }),
 });
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button 
-      type="submit" 
-      disabled={pending}
-      className="px-8 py-2 rounded-full text-sm font-medium transition-all hover:scale-105"
-    >
-      {pending ? "Enviando..." : "Enviar"}
-    </Button>
-  );
-}
-
 export default function ContactForm() {
   const { toast } = useToast();
-  const initialState: FormState = { message: "", status: "idle" };
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -49,28 +38,44 @@ export default function ContactForm() {
       name: "",
       email: "",
       message: "",
+      privacy: false,
     },
   });
 
-  useEffect(() => {
-    if (state.status === "success") {
+  const onSubmit = async (data: z.infer<typeof contactSchema>) => {
+    setIsSubmitting(true);
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        PUBLIC_KEY
+      );
+
       toast({
         title: "¡Éxito!",
-        description: state.message,
+        description: "Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.",
       });
       form.reset();
-    } else if (state.status === "error") {
+    } catch (error) {
+      console.error(error);
       toast({
         title: "Error",
-        description: state.message,
+        description: "No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [state, toast, form]);
-  
+  };
+
   return (
     <Form {...form}>
-      <form action={formAction} className="space-y-5">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
@@ -150,7 +155,13 @@ export default function ContactForm() {
           )}
         />
         <div className="flex justify-center mt-6">
-          <SubmitButton />
+          <Button 
+            type="submit" 
+            disabled={isSubmitting}
+            className="px-8 py-2 rounded-full text-sm font-medium transition-all hover:scale-105"
+          >
+            {isSubmitting ? "Enviando..." : "Enviar"}
+          </Button>
         </div>
       </form>
     </Form>

@@ -29,20 +29,11 @@ const navItems = [
       { href: '/tratamientos/implantes', label: 'Implantes Dentales' },
       { href: '/tratamientos/ortodoncia', label: 'Ortodoncia' },
       { href: '/tratamientos/estetica-dental', label: 'Estética Dental' },
-      { href: '/tratamientos/periodoncia', label: 'Periodoncia' },
-    ]
-  },
-  {
-    href: '/servicios',
-    label: 'Servicios',
-    submenu: [
-      { href: '/servicios/primera-visita', label: 'Primera Visita' },
-      { href: '/servicios/urgencias', label: 'Urgencias Dentales' },
-      { href: '/servicios/financiacion', label: 'Financiación' },
+      //{ href: '/tratamientos/periodoncia', label: 'Periodoncia' },
     ]
   },
   { href: '/equipo', label: 'Equipo' },
-  { href: '/casos', label: 'Casos' },
+  //{ href: '/casos', label: 'Casos' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' }
 ];

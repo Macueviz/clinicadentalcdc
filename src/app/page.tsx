@@ -1,25 +1,80 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/componentes/ui/button";
-import { Card, CardContent, CardDescription, CardTitle } from "@/componentes/ui/card";
-import { CheckCircle, Users, Smile, Stethoscope } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/componentes/ui/card";
+import { CheckCircle, Users, Smile, SmilePlus, Bot, Send } from "lucide-react";
 import Image from "next/image";
-import dentalClinicImage from "../imagenes/pexels-karolina-grabowska-6627353.jpg";
+import portadaPaciente from "../../public/images/pacientes/portada_paciente2.jpeg";
 import dentalClinicTreatment from "../imagenes/jonathan-borba-v_2FRXEba94-unsplash.jpg";
 import Link from "next/link";
+import { Input } from "@/componentes/ui/input";
+import { Alert, AlertDescription, AlertTitle } from "@/componentes/ui/alert";
+
+/*function AIAssistant() {
+  const [prompt, setPrompt] = useState("");
+  const [response, setResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setResponse("");
+    const res = await fetch('/api/ai-assistant', { 
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify({ prompt }) });
+    const data = await res.json();
+    setResponse(data.response);
+    setIsLoading(false);
+  };
+
+  return (
+    <Card className="bg-background shadow-lg">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 font-headline text-2xl">
+          <Bot className="h-6 w-6 text-primary" /> Asistente Virtual
+        </CardTitle>
+        <CardDescription>¿Tienes una pregunta rápida? Nuestro asistente te puede ayudar.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+          <Input
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="Ej: ¿Qué es una carilla dental?"
+            disabled={isLoading}
+          />
+          <Button type="submit" size="icon" disabled={isLoading}>
+            <Send className="h-4 w-4" />
+          </Button>
+        </form>
+        {isLoading && <p className="text-muted-foreground text-sm">Pensando...</p>}
+        {response && (
+          <Alert>
+            <AlertTitle>Respuesta:</AlertTitle>
+            <AlertDescription className="whitespace-pre-wrap">{response}</AlertDescription>
+          </Alert>
+        )}
+      </CardContent>
+    </Card>
+  );
+}*/
 
 const treatments = [
   {
     name: "Implantes Dentales",
-    description: "Recupera la funcionalidad y estética de tu sonrisa con implantes de última generación.",
-    icon: <Stethoscope className="h-10 w-10" />,
+    description: "Reemplazamos dientes perdidos con implantes de titanio que se integran con tu hueso, ofreciendo una solución duradera y de aspecto natural.",
+    icon: <SmilePlus className="h-10 w-10" />,
   },
   {
     name: "Ortodoncia",
-    description: "Alinea tus dientes y mejora tu mordida con nuestras soluciones de ortodoncia invisible y tradicional.",
+    description: "Corregimos la alineación de tus dientes y la mordida con brackets tradicionales o alineadores invisibles para una sonrisa perfecta y funcional.",
     icon: <Smile className="h-10 w-10" />,
   },
   {
     name: "Estética Dental",
-    description: "Diseñamos tu sonrisa perfecta con blanqueamientos, carillas y otros tratamientos estéticos.",
+    description: "Mejoramos la apariencia de tu sonrisa con tratamientos como blanqueamiento dental, carillas de porcelana y contorneado estético.",
     icon: <Users className="h-10 w-10" />,
   },
 ];
@@ -27,23 +82,28 @@ const treatments = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
+      <section className="relative h-[70vh] md:h-[90vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <Image
-          src={dentalClinicImage}
-          alt="Clínica dental CDC"
-          layout="fill"
-          objectFit="cover"
-          className="z-0"
-          data-ai-hint="dental clinic interior"
+          src={portadaPaciente}
+          alt="Interior de Clínica Dental Cuevas en Torre del Mar - Instalaciones modernas y acogedoras"
+          priority
+          fill
+          style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
+          className="z-2"
         />
-        <div className="relative z-20 container px-4 md:px-6">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight">
-            Tu Sonrisa, Nuestra Pasión
+        <div className="relative z-10 container px-4 md:px-6">
+          <h1 className="text-xl md:text-6xl font-bold font-headline tracking-tight">
+            Tu dentista de confianza en Torre del Mar
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl">
-            En Clínica Dental Cuevas, combinamos la última tecnología con un trato cercano y profesional para ofrecerte la mejor experiencia dental.
+            Más de 15 años de experiencia cuidando sonrisas en la Costa del Sol. Especialistas en implantes dentales, ortodoncia y estética dental con tecnología de vanguardia.
           </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <Button size="lg" asChild>
+              <Link href="/contacto">Pide tu Primera Consulta Gratuita</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -110,6 +170,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/*<section id="ai-assistant" className="py-16 md:py-24 bg-muted">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <AIAssistant />
+        </div>
+      </section>*/}
     </div>
   );
 }
