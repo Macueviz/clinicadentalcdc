@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, Phone, Calendar } from 'lucide-react';
@@ -29,6 +29,7 @@ const navItems = [
       { href: '/tratamientos/implantes', label: 'Implantes Dentales' },
       { href: '/tratamientos/ortodoncia', label: 'Ortodoncia' },
       { href: '/tratamientos/estetica-dental', label: 'Estética Dental' },
+      { href: '/tratamientos/odontologia-conservadora', label: 'Odontología Conservadora' },
       //{ href: '/tratamientos/periodoncia', label: 'Periodoncia' },
     ]
   },
