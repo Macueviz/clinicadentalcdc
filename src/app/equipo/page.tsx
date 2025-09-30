@@ -14,7 +14,7 @@ const teamMembers = [
     name: "Raquel Martín Sánchez",
     specialty: "Ortodoncista",
     description: "Especializada en ortodoncia y armonización orofacial",
-    avatar: "/images/equipo/raquel_sola.png",
+    avatar: "/images/equipo/raquel_dent.png",
     initials: "RM",
     aiHint: "professional woman smiling"
   },

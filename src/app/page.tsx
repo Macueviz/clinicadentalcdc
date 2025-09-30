@@ -7,6 +7,11 @@ import { CheckCircle, Users, Smile, SmilePlus, Bot, Send } from "lucide-react";
 import Image from "next/image";
 import portadaPaciente from "../../public/images/pacientes/portada_paciente2.jpeg";
 import dentalClinicTreatment from "../imagenes/jonathan-borba-v_2FRXEba94-unsplash.jpg";
+import iconBraquets from "../../public/images/iconBraquets.png";
+import iconImplante from "../../public/images/iconImplante.png";
+import iconSonrisa from "../../public/images/iconSonrisa.png";
+import iconDienteSonrisa from "../../public/images/iconDienteSonrisa.png";
+import tacPequeño from "../../public/images/tac_peque.png";
 import Link from "next/link";
 import { Input } from "@/componentes/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/componentes/ui/alert";
@@ -65,25 +70,60 @@ const treatments = [
   {
     name: "Implantes Dentales",
     description: "Reemplazamos dientes perdidos con implantes de titanio que se integran con tu hueso, ofreciendo una solución duradera y de aspecto natural.",
-    icon: <SmilePlus className="h-10 w-10" />,
+    icon: (
+      <Image
+        src={iconImplante}
+        alt="Implantes Dentales"
+        className="h-16 w-16"
+      />
+    ),
+    href: "/tratamientos/implantes"
   },
   {
     name: "Ortodoncia",
     description: "Corregimos la alineación de tus dientes y la mordida con brackets tradicionales o alineadores invisibles para una sonrisa perfecta y funcional.",
-    icon: <Smile className="h-10 w-10" />,
+    icon: (
+      <Image
+        src={iconBraquets}
+        alt="Ortodoncia"
+        className="h-16 w-20"
+      />
+    ),
+    href: "/tratamientos/ortodoncia",
   },
   {
     name: "Estética Dental",
     description: "Mejoramos la apariencia de tu sonrisa con tratamientos como blanqueamiento dental, carillas de porcelana y contorneado estético.",
-    icon: <Users className="h-10 w-10" />,
+    icon: (
+      <Image
+          src={iconSonrisa}
+          alt="Ortodoncia"
+          className="h-16 w-20"
+        />
+    ),
+    href: "/tratamientos/estetica-dental",
   },
+  {
+    name: "Odontología conservadora",
+    description: "Tratamos las caries y problemas dentales de manera mínimamente invasiva para preservar al máximo la estructura dental natural.",
+    icon: (
+      <Image
+          src={iconDienteSonrisa}
+          alt="Ortodoncia"
+          className="h-16 w-20"
+        />
+    ),
+    href: "/tratamientos/odontologia-conservadora",
+  }
 ];
 
 export default function Home() {
   return (
+
     <div className="flex flex-col">
+                 {/* Seccion Portada */}
       <section className="relative h-[70vh] md:h-[90vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-black/30 z-10" />
         <Image
           src={portadaPaciente}
           alt="Interior de Clínica Dental Cuevas en Torre del Mar - Instalaciones modernas y acogedoras"
@@ -97,8 +137,11 @@ export default function Home() {
             Tu dentista de confianza en Torre del Mar
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl">
-            Más de 15 años de experiencia cuidando sonrisas en la Costa del Sol. Especialistas en implantes dentales, ortodoncia y estética dental con tecnología de vanguardia.
+            Más de 15 años de experiencia cuidando sonrisas en Málaga.
+            <br />
+            Especialistas en implantes dentales, ortodoncia y estética dental con tecnología de vanguardia.
           </p>
+          
           <div className="mt-8 flex justify-center gap-4">
             <Button size="lg" asChild>
               <Link href="/contacto">Pide tu Primera Consulta Gratuita</Link>
@@ -106,6 +149,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+                {/* Seccion Información */}
 
       <section id="about" className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
@@ -132,19 +177,21 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
+            <div className="rounded-lg overflow-hidden shadow-xl bg-black/50">
               <Image
-                src={dentalClinicTreatment}
-                alt="Equipo de CDC"
+                src={tacPequeño}
+                alt="Doctor mostrando Tac"
                 width={600}
                 height={500}
                 data-ai-hint="friendly dentist"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover" 
               />
             </div>
           </div>
         </div>
       </section>
+
+                {/* Seccion Tratamientos */}
 
       <section id="treatments" className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6 text-center">
@@ -154,19 +201,16 @@ export default function Home() {
           </p>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {treatments.map((treatment) => (
-              <Card key={treatment.name} className="text-center p-6 flex flex-col items-center bg-background transform hover:scale-105 transition-transform duration-300 shadow-lg">
-                <CardContent className="flex flex-col items-center gap-4">
-                  <div className="text-primary">{treatment.icon}</div>
-                  <CardTitle className="font-headline text-2xl">{treatment.name}</CardTitle>
-                  <CardDescription>{treatment.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <Link href={treatment.href} key={treatment.name} className="block h-full">
+                <Card className="text-center p-6 flex flex-col items-center bg-background transform hover:scale-105 transition-transform duration-300 shadow-lg h-full">
+                  <CardContent className="flex flex-col items-center gap-4">
+                    <div className="text-primary">{treatment.icon}</div>
+                    <CardTitle className="font-headline text-2xl">{treatment.name}</CardTitle>
+                    <CardDescription>{treatment.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
-          </div>
-          <div className="mt-12">
-            <Button asChild size="lg" className="font-bold">
-              <Link href="/tratamientos">Ver todos los tratamientos</Link>
-            </Button>
           </div>
         </div>
       </section>
