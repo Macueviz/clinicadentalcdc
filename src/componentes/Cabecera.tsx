@@ -8,6 +8,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/componentes/ui/dropdown-menu";
 
@@ -31,6 +34,18 @@ const navItems = [
       { href: '/tratamientos/estetica-dental', label: 'Estética Dental' },
       { href: '/tratamientos/odontologia-conservadora', label: 'Odontología Conservadora' },
       //{ href: '/tratamientos/periodoncia', label: 'Periodoncia' },
+      { 
+        href: '#', 
+        label: 'Recomendaciones Post-Tratamiento',
+        subsubmenu: [
+          { href: '/recomendaciones-post-tratamiento/limpieza-dental', label: 'Limpieza Dental' },
+          { href: '/recomendaciones-post-tratamiento/carillas-composite', label: 'Carillas de Composite' },
+          { href: '/recomendaciones-post-tratamiento/cuidados-post-extraccion', label: 'Cuidados Post-Extracción' },
+          { href: '/recomendaciones-post-tratamiento/cirugia-implantes', label: 'Cirugía de Implantes' },
+          { href: '/recomendaciones-post-tratamiento/higiene-protesis', label: 'Higiene de Prótesis Removible' },
+          { href: '/recomendaciones-post-tratamiento/blanqueamiento-casa', label: 'Blanqueamiento en Casa' },
+        ]
+      },
     ]
   },
   { href: '/equipo', label: 'Equipo' },
@@ -43,6 +58,7 @@ export default function Cabecera() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   const toggleSubmenu = (href: string) => {
@@ -64,29 +80,88 @@ export default function Cabecera() {
   const NavLink = ({ href, label, submenu, className }: { 
     href: string; 
     label: string; 
-    submenu?: Array<{href: string, label: string}>; 
+    submenu?: Array<{href: string, label: string, subsubmenu?: Array<{href: string, label: string}>}>; 
     className?: string 
   }) => {
     if (submenu) {
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger className={cn(
-            'flex items-center gap-1 text-m font-medium transition-colors hover:text-primary',
-            pathname.startsWith(href) ? 'text-primary' : 'text-foreground',
-            className
-          )}>
-            {label} <ChevronDown className="h-4 w-4" />
+        <DropdownMenu 
+          open={openDropdown === href} 
+          onOpenChange={(isOpen) => setOpenDropdown(isOpen ? href : null)}
+        >
+          <DropdownMenuTrigger asChild>
+            <div
+              className={cn(
+                'flex items-center gap-1 text-m font-medium transition-colors hover:text-primary px-3 py-2 rounded-md cursor-pointer',
+                pathname.startsWith(href) ? 'text-primary' : 'text-foreground',
+                className
+              )}
+              onMouseEnter={() => {
+                // Solo abrir en hover si estamos en desktop (>= 1024px)
+                if (window.innerWidth >= 1024) {
+                  setOpenDropdown(href);
+                }
+              }}
+              onMouseLeave={() => {
+                // Cerrar con un pequeño delay para evitar intermitencia
+                if (window.innerWidth >= 1024) {
+                  setTimeout(() => {
+                    // Solo cerrar si el mouse no está sobre el dropdown
+                    const dropdownElement = document.querySelector('[data-radix-popper-content-wrapper]');
+                    if (!dropdownElement?.matches(':hover')) {
+                      setOpenDropdown(null);
+                    }
+                  }, 100);
+                }
+              }}
+            >
+              {label} <ChevronDown className="h-4 w-4 ml-1" />
+            </div>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-background">
+          <DropdownMenuContent 
+            className="bg-background mt-1 min-w-[220px]"
+            onMouseEnter={() => {
+              // Mantener abierto si el mouse está sobre el dropdown
+              if (window.innerWidth >= 1024) {
+                setOpenDropdown(href);
+              }
+            }}
+            onMouseLeave={() => {
+              // Cerrar cuando el mouse sale del dropdown
+              if (window.innerWidth >= 1024) {
+                setOpenDropdown(null);
+              }
+            }}
+          >
             {submenu.map((item) => (
-              <DropdownMenuItem key={item.href}>
-                <Link 
-                  href={item.href} 
-                  className="w-full text-foreground hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </DropdownMenuItem>
+              item.subsubmenu ? (
+                <DropdownMenuSub key={item.href}>
+                  <DropdownMenuSubTrigger className="flex items-center">
+                    <span>{item.label}</span>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent className="ml-2">
+                    {item.subsubmenu.map((subItem) => (
+                      <DropdownMenuItem key={subItem.href}>
+                        <Link 
+                          href={subItem.href} 
+                          className="w-full text-foreground hover:text-primary transition-colors"
+                        >
+                          {subItem.label}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+              ) : (
+                <DropdownMenuItem key={item.href}>
+                  <Link 
+                    href={item.href} 
+                    className="w-full text-foreground hover:text-primary transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </DropdownMenuItem>
+              )
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
@@ -151,7 +226,7 @@ export default function Cabecera() {
               </a>
             </div>
             <Button asChild className="rounded-full hover:bg-primary/90 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg whitespace-nowrap">
-              <Link href="/contacto">Pedir Cita</Link>
+              <Link href="/contacto">Pedir cita</Link>
             </Button>
           </div>
         </nav>
@@ -215,17 +290,49 @@ export default function Cabecera() {
                               {expandedItems.includes(item.href) && (
                                 <div className="bg-muted/50 pl-6">
                                   {item.submenu.map((subItem) => (
-                                    <Link
-                                      key={subItem.href}
-                                      href={subItem.href}
-                                      className="block p-3 text-base text-muted-foreground hover:text-primary"
-                                      onClick={() => {
-                                        setIsMobileMenuOpen(false);
-                                        setExpandedItems([]);
-                                      }}
-                                    >
-                                      {subItem.label}
-                                    </Link>
+                                    subItem.subsubmenu ? (
+                                      <div key={subItem.href}>
+                                        <button
+                                          onClick={() => toggleSubmenu(`${item.href}-${subItem.href}`)}
+                                          className="flex items-center justify-between w-full p-3 text-sm text-muted-foreground hover:text-primary"
+                                        >
+                                          {subItem.label}
+                                          <ChevronDown className={cn(
+                                            "h-3 w-3 transition-transform duration-200",
+                                            expandedItems.includes(`${item.href}-${subItem.href}`) ? "rotate-180" : ""
+                                          )} />
+                                        </button>
+                                        {expandedItems.includes(`${item.href}-${subItem.href}`) && (
+                                          <div className="bg-muted/70 pl-8">
+                                            {subItem.subsubmenu.map((subSubItem) => (
+                                              <Link
+                                                key={subSubItem.href}
+                                                href={subSubItem.href}
+                                                className="block p-2 text-sm text-muted-foreground hover:text-primary"
+                                                onClick={() => {
+                                                  setIsMobileMenuOpen(false);
+                                                  setExpandedItems([]);
+                                                }}
+                                              >
+                                                {subSubItem.label}
+                                              </Link>
+                                            ))}
+                                          </div>
+                                        )}
+                                      </div>
+                                    ) : (
+                                      <Link
+                                        key={subItem.href}
+                                        href={subItem.href}
+                                        className="block p-3 text-base text-muted-foreground hover:text-primary"
+                                        onClick={() => {
+                                          setIsMobileMenuOpen(false);
+                                          setExpandedItems([]);
+                                        }}
+                                      >
+                                        {subItem.label}
+                                      </Link>
+                                    )
                                   ))}
                                 </div>
                               )}

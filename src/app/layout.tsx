@@ -47,6 +47,83 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+        
+        {/* Schema Markup para SEO local */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Dentist",
+              "name": "Clínica Dental Cuevas",
+              "alternateName": "CDC - Clínica Dental Cuevas",
+              "description": "Clínica dental especializada en implantes, ortodoncia y estética dental en Torre del Mar, Málaga. Más de 15 años de experiencia cuidando sonrisas.",
+              "image": "https://www.clinicadentalcdcuevas.com/images/clinica-dental-cuevas-torre-del-mar.jpg",
+              "@id": "https://www.clinicadentalcdcuevas.com",
+              "url": "https://www.clinicadentalcdcuevas.com",
+              "telephone": "+34669312898",
+              "email": "info@clinicadentalcdcuevas.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Av. de Andalucía, 149",
+                "addressLocality": "Torre del Mar",
+                "addressRegion": "Málaga",
+                "postalCode": "29740",
+                "addressCountry": "ES"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 36.74079637125684,
+                "longitude": -4.097555824211491
+              },
+              "openingHours": [
+                "Mo-Fr 09:00-14:00",
+                "Mo-Fr 16:00-20:00",
+                "Sat-Sun Closed"
+              ],
+              "priceRange": "€€",
+              "paymentAccepted": "Cash, Credit Card",
+              "currenciesAccepted": "EUR",
+              "hasMap": "https://goo.gl/maps/ubicacion-clinica-cuevas",
+              "areaServed": [
+                "Torre del Mar",
+                "Vélez-Málaga",
+                "Málaga",
+                "Rincón de la Victoria",
+                "Nerja",
+                "Torrox"
+              ],
+              "medicalSpecialty": [
+                "Implantología",
+                "Ortodoncia",
+                "Estética Dental",
+                "Odontología Conservadora",
+                "Periodoncia"
+              ],
+              "sameAs": [
+                "https://www.doctoralia.es/clinica-dental-cuevas",
+                "https://www.google.com/maps/place/clinica-dental-cuevas",
+                "https://www.instagram.com/clinicadentalcdcuevas/"
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Dr. Javier Cuevas"
+              },
+              "employee": [
+                {
+                  "@type": "Person",
+                  "name": "Dr. Javier Cuevas",
+                  "jobTitle": "Odontólogo especialista en Implantología"
+                },
+                {
+                  "@type": "Person", 
+                  "name": "Dra. Raquel",
+                  "jobTitle": "Especialista en Implantología y Cirugía Oral"
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body className={cn('min-h-screen bg-background font-body antialiased')}>
         <div className="relative flex min-h-screen flex-col">

@@ -6,11 +6,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CheckCircle, Users, Smile, SmilePlus, Bot, Send } from "lucide-react";
 import Image from "next/image";
 import portadaPaciente from "../../public/images/pacientes/portada_paciente2.jpeg";
-import dentalClinicTreatment from "../imagenes/jonathan-borba-v_2FRXEba94-unsplash.jpg";
 import iconBraquets from "../../public/images/iconBraquets.png";
 import iconImplante from "../../public/images/iconImplante.png";
 import iconSonrisa from "../../public/images/iconSonrisa.png";
-import iconDienteSonrisa from "../../public/images/iconDienteSonrisa.png";
+import iconDienteSonrisa from "../../public/images/iconDienteSonrisa2.png";
 import tacPequeño from "../../public/images/tac_peque.png";
 import Link from "next/link";
 import { Input } from "@/componentes/ui/input";
@@ -68,7 +67,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/componentes/ui/alert";
 
 const treatments = [
   {
-    name: "Implantes Dentales",
+    name: "Implantes dentales",
     description: "Reemplazamos dientes perdidos con implantes de titanio que se integran con tu hueso, ofreciendo una solución duradera y de aspecto natural.",
     icon: (
       <Image
@@ -92,7 +91,7 @@ const treatments = [
     href: "/tratamientos/ortodoncia",
   },
   {
-    name: "Estética Dental",
+    name: "Estética dental",
     description: "Mejoramos la apariencia de tu sonrisa con tratamientos como blanqueamiento dental, carillas de porcelana y contorneado estético.",
     icon: (
       <Image
@@ -144,7 +143,7 @@ export default function Home() {
           
           <div className="mt-8 flex justify-center gap-4">
             <Button size="lg" asChild>
-              <Link href="/contacto">Pide tu Primera Consulta Gratuita</Link>
+              <Link href="/contacto">Pide tu primera consulta GRATIS</Link>
             </Button>
           </div>
         </div>
@@ -165,15 +164,15 @@ export default function Home() {
               <ul className="mt-6 space-y-4">
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <span><span className="font-bold">Tecnología Avanzada:</span> Equipamiento de última generación para diagnósticos precisos y tratamientos eficaces.</span>
+                  <span><span className="font-bold">Tecnología avanzada:</span> Equipamiento de última generación para diagnósticos precisos y tratamientos eficaces.</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <span><span className="font-bold">Equipo Experto:</span> Profesionales altamente cualificados y en constante formación.</span>
+                  <span><span className="font-bold">Equipo experto:</span> Profesionales altamente cualificados y en constante formación.</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <span><span className="font-bold">Atención Personalizada:</span> Nos enfocamos en tus necesidades para ofrecerte un plan de tratamiento a tu medida.</span>
+                  <span><span className="font-bold">Atención personalizada:</span> Nos enfocamos en tus necesidades para ofrecerte un plan de tratamiento a tu medida.</span>
                 </li>
               </ul>
             </div>
@@ -195,7 +194,7 @@ export default function Home() {
 
       <section id="treatments" className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline">Tratamientos Destacados</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline">Tratamientos destacados</h2>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
             Ofrecemos una amplia gama de servicios para cubrir todas tus necesidades dentales.
           </p>

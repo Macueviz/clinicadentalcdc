@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from './ui/button';
 import Logo from '../imagenes/logo peque 2.png';
+import doctoralia from '../../public/images/doctoralia.png';
 
 const legalItems = [
     { href: '/politica-de-privacidad', label: 'Política de Privacidad' },
@@ -60,6 +61,15 @@ export default function PiePagina() {
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
                 <a href="tel:+34669312898" className="hover:text-primary">+34 669 312 898</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Image
+                  src={doctoralia}
+                  alt="Doctoralia"
+                  className="h-4 w-4 flex-shrink-0"
+                />
+                <a href="https://www.doctoralia.es/clinicas/clinica-dental-cuevas" className="hover:text-primary transition-colors text-sm">Doctoralia</a>
+
               </li>
             </ul>
           </div>

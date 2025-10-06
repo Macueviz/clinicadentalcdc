@@ -13,14 +13,19 @@ const treatments = [
     icon: <Smile className="h-10 w-10 text-primary" />,
   },
   {
-    title: "Periodoncia",
-    description: "Tratamos las enfermedades de las encías y el hueso que soporta los dientes, como la gingivitis y la periodontitis, para mantener tu boca sana.",
-    icon: <HeartPulse className="h-10 w-10 text-primary" />,
+    title: "Odontología Conservadora",
+    description: "Tratamos las caries y problemas dentales de manera mínimamente invasiva para preservar al máximo la estructura dental natural.",
+    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
   },
   {
     title: "Estética Dental",
     description: "Mejoramos la apariencia de tu sonrisa con tratamientos como blanqueamiento dental, carillas de porcelana y contorneado estético.",
     icon: <Gem className="h-10 w-10 text-primary" />,
+  },
+  {
+    title: "Periodoncia",
+    description: "Tratamos las enfermedades de las encías y el hueso que soporta los dientes, como la gingivitis y la periodontitis, para mantener tu boca sana.",
+    icon: <HeartPulse className="h-10 w-10 text-primary" />,
   },
 ];
 

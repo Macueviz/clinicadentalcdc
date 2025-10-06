@@ -1,5 +1,7 @@
 import ContactForm from '@/componentes/contact-form';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import doctoralia from '../../../public/images/doctoralia.png';
 
 export default function ContactPage() {
   return (
@@ -17,13 +19,13 @@ export default function ContactPage() {
 
         {/* Formulario e Información en dos columnas */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {/* Formulario - 2 columnas de ancho */}  
+          {/* Formulario - 2 columnas de ancho */}
           <div className="md:col-span-2 bg-card p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-headline font-bold mb-4">Pide tu cita</h2>
             <ContactForm />
           </div>
-          
-          {/* Información de contacto - 1 columna de ancho */} 
+
+          {/* Información de contacto - 1 columna de ancho */}
           <div className="md:col-span-1 bg-card p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-headline font-bold mb-4">Información de contacto</h2>
             <div className="space-y-6 text-muted-foreground">
@@ -48,11 +50,22 @@ export default function ContactPage() {
                   <a href="mailto:info@clinicadentalcdcuevas.com" className="hover:text-primary transition-colors text-sm">info@clinicadentalcdcuevas.com</a>
                 </div>
               </div>
+              <div className="flex items-start gap-3">
+                <Image
+                  src={doctoralia}
+                  alt="Doctoralia"
+                  className="h-5 w-5 text-primary mt-1 flex-shrink-0"
+                />
+                <div>
+                  <h2 className="text-foreground">Puedes contactarnos a través de Doctoralia en:</h2>
+                  <a href="https://www.doctoralia.es/clinicas/clinica-dental-cuevas" className="hover:text-primary transition-colors text-sm">Doctoralia</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Ubicación - Ancho completo */} 
+        {/* Ubicación - Ancho completo */}
         <div className="bg-card p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-headline font-bold mb-6">Encuéntranos en Torre del Mar</h2>
           <div className="rounded-lg overflow-hidden aspect-video shadow-md">
