@@ -60,6 +60,8 @@ export default function Cabecera() {
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const toggleSubmenu = (href: string) => {
     setExpandedItems(prev => 
@@ -74,8 +76,55 @@ export default function Cabecera() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearAutoCloseTimer(); // Limpiar timer al desmontar
+    };
   }, []);
+
+  // Cerrar dropdown cuando se hace click fuera o se cambia de página
+  useEffect(() => {
+    const handleClickOutside = () => {
+      closeDropdown();
+    };
+    
+    if (openDropdown) {
+      document.addEventListener('click', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [openDropdown]);
+
+  // Función para limpiar el timer
+  const clearAutoCloseTimer = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  // Función para iniciar el timer de cierre automático
+  const startAutoCloseTimer = () => {
+    clearAutoCloseTimer();
+    timeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 5000); // 5 segundos
+  };
+
+  // Función para cerrar el dropdown
+  const closeDropdown = () => {
+    clearAutoCloseTimer();
+    setOpenDropdown(null);
+  };
+
+  // Función para abrir el dropdown
+  const openDropdownMenu = (href: string) => {
+    clearAutoCloseTimer();
+    setOpenDropdown(href);
+    startAutoCloseTimer();
+  };
 
   const NavLink = ({ href, label, submenu, className }: { 
     href: string; 
@@ -87,10 +136,17 @@ export default function Cabecera() {
       return (
         <DropdownMenu 
           open={openDropdown === href} 
-          onOpenChange={(isOpen) => setOpenDropdown(isOpen ? href : null)}
+          onOpenChange={(isOpen) => {
+            if (isOpen) {
+              openDropdownMenu(href);
+            } else {
+              closeDropdown();
+            }
+          }}
         >
           <DropdownMenuTrigger asChild>
             <div
+              ref={dropdownRef}
               className={cn(
                 'flex items-center gap-1 text-m font-medium transition-colors hover:text-primary px-3 py-2 rounded-md cursor-pointer',
                 pathname.startsWith(href) ? 'text-primary' : 'text-foreground',
@@ -99,19 +155,21 @@ export default function Cabecera() {
               onMouseEnter={() => {
                 // Solo abrir en hover si estamos en desktop (>= 1024px)
                 if (window.innerWidth >= 1024) {
-                  setOpenDropdown(href);
+                  openDropdownMenu(href);
                 }
               }}
               onMouseLeave={() => {
-                // Cerrar con un pequeño delay para evitar intermitencia
+                // Cerrar con un delay para evitar intermitencia
                 if (window.innerWidth >= 1024) {
                   setTimeout(() => {
-                    // Solo cerrar si el mouse no está sobre el dropdown
+                    // Verificar si el mouse está fuera del área del dropdown
                     const dropdownElement = document.querySelector('[data-radix-popper-content-wrapper]');
-                    if (!dropdownElement?.matches(':hover')) {
-                      setOpenDropdown(null);
+                    const triggerElement = dropdownRef.current;
+                    
+                    if (!dropdownElement?.matches(':hover') && !triggerElement?.matches(':hover')) {
+                      closeDropdown();
                     }
-                  }, 100);
+                  }, 150);
                 }
               }}
             >
@@ -121,15 +179,21 @@ export default function Cabecera() {
           <DropdownMenuContent 
             className="bg-background mt-1 min-w-[220px]"
             onMouseEnter={() => {
-              // Mantener abierto si el mouse está sobre el dropdown
+              // Mantener abierto y reiniciar timer si el mouse está sobre el dropdown
               if (window.innerWidth >= 1024) {
+                clearAutoCloseTimer();
                 setOpenDropdown(href);
               }
             }}
             onMouseLeave={() => {
-              // Cerrar cuando el mouse sale del dropdown
+              // Cerrar inmediatamente cuando el mouse sale del dropdown
               if (window.innerWidth >= 1024) {
-                setOpenDropdown(null);
+                setTimeout(() => {
+                  const triggerElement = dropdownRef.current;
+                  if (!triggerElement?.matches(':hover')) {
+                    closeDropdown();
+                  }
+                }, 100);
               }
             }}
           >
@@ -210,6 +274,12 @@ export default function Cabecera() {
                   key={item.href} 
                   href={item.href} 
                   className="text-m font-medium transition-colors hover:text-primary text-foreground"
+                  onMouseEnter={() => {
+                    // Cerrar dropdown cuando se hace hover sobre otros elementos
+                    if (window.innerWidth >= 1024) {
+                      closeDropdown();
+                    }
+                  }}
                 >
                   {item.label}
                 </Link>
