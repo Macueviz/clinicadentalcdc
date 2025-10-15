@@ -18,7 +18,7 @@ const teamMembers = [
     specializations: ["Implantes dentales", "Cirugía oral avanzada", "Rehabilitación bucal"]
   },
   {
-    name: "Raquel Martín Sánchez",
+    name: "Dra. Raquel Martín",
     specialty: "Ortodoncista",
     description: "Especializada en ortodoncia y armonización orofacial",
     avatar: "/images/equipo/raquel_dent.png",
@@ -31,7 +31,7 @@ const teamMembers = [
     specializations: ["Ortodoncia", "Armonización orofacial"]
   },
   {
-    name: "Carmen",
+    name: "Dra. Carmen Gálvez",
     specialty: "Odontóloga General y Estética",
     description: "Especialista en odontología general y estética.",
     avatar: "/images/equipo/carmen_sola.png",

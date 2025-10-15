@@ -76,9 +76,30 @@ export default function PiePagina() {
 
           <div>
             <h3 className="font-headline font-semibold">Horario</h3>
-            <div className="mt-2 text-sm text-muted-foreground gap-4">
-                <p >Lunes a Viernes: 9:00 - 20:00</p>
-                <p className="mt-2">Sábados y Domingos cerrado</p>
+            <div className="mt-4 text-sm text-muted-foreground space-y-2">
+              <div className="flex justify-between">
+                <span className="font-medium">Lunes:</span>
+                <span>10:00 - 14:00 | 16:00 - 20:00</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-medium">Martes:</span>
+                <span>10:00 - 14:00 | 15:00 - 19:00</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-medium">Miércoles:</span>
+                <span>10:00 - 14:00 | 16:00 - 20:00</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-medium">Jueves:</span>
+                <span>10:00 - 14:00 | 15:00 - 19:00</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-medium">Viernes:</span>
+                <span>10:00 - 14:00 | 15:00 - 18:00</span>
+              </div>
+              <div className="text-center pt-2 mt-3 border-t border-muted">
+                <p className="text-red-600 font-medium text-xs">Sábados y Domingos cerrado</p>
+              </div>
             </div>
           </div>
         </div>
