@@ -52,7 +52,7 @@ const teamMembers = [
     aiHint: "professional woman smiling"
   },*/
   {
-    name: "Raquel", 
+    name: "Raquel Cisneros", 
     specialty: "Higienista Dental",
     description: "Especialista en la prevención y tratamiento de enfermedades bucales, así como en la promoción de la salud dental.",
     avatar: "/images/equipo/raquel_sola.png",

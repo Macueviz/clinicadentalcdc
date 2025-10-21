@@ -31,26 +31,28 @@ const teamMembers = [
   },
   {
     name: "Carmen Gálvez",
-    specialty: "Odontóloga General y Ortodoncista",
-    description: "Especialista en odontología general y ortodoncia, con amplia formación en técnicas de alineadores invisibles y ortodoncia interceptiva.",
+    specialty: "Odontóloga General y Estética Dental",
+    description: "Especialista en odontología general y estética dental, con especial dedicación al diseño de sonrisa y tratamientos restauradores avanzados.",
     avatar: "/images/equipo/carmen.JPEG",
     initials: "C",
     aiHint: "professional woman smiling",
     slug: "carmen-sola",
-    bio: "La Dra. Carmen se distingue por su enfoque integral y meticuloso en el cuidado bucodental, combinando su sólida base en odontología general con una especialización avanzada en ortodoncia. Su formación académica en la prestigiosa Universidad Europea de Madrid le proporcionó los fundamentos científicos que ha enriquecido posteriormente con estudios especializados en la Universidad Católica San Antonio de Murcia, donde obtuvo tanto su título de Experto como su Máster en Ortodoncia Clínica, Ortopedia Dentofacial y Alineadores.\n\nSu expertise en ortodoncia interceptiva refleja su visión preventiva y su compromiso con la atención temprana, permitiéndole detectar y corregir problemas de desarrollo dental desde edades pediátricas. Esta especialización, unida a su dominio en ortodoncia clínica y ortopedia dentofacial, la capacita para ofrecer tratamientos comprehensivos que abordan tanto la función como la estética dental en pacientes de todas las edades. Su dedicación a la excelencia se evidencia en sus certificaciones en los sistemas de alineadores invisibles más avanzados del mercado: Invisalign, Alineadent y HeySmile.\n\nLa Dra. Carmen destaca por su trato cercano y empático, cualidades que, combinadas con su rigor científico y actualización constante, generan un ambiente de confianza donde cada paciente se siente escuchado y comprendido. Su filosofía de trabajo se centra en tratamientos personalizados que no solo corrigen la posición dental, sino que optimizan la función masticatoria y realzan la armonía facial, logrando sonrisas saludables que perduran en el tiempo y mejoran significativamente la calidad de vida de sus pacientes.",
-    experience: "10+ años",
+    bio: "La Dra. Carmen Gálvez destaca por su pasión hacia la odontología estética y el diseño de sonrisa, combinando su sólida formación en odontología general con una especialización enfocada en crear sonrisas armoniosas y naturales. Su graduación en la Universidad Europea de Madrid le proporcionó una base científica excepcional que complementa constantemente con formación especializada en las técnicas más avanzadas de rehabilitación oral.\n\nSu expertise se centra en el diseño de sonrisa personalizado, trabajando con materiales de última generación como carillas de composite, coronas de circonio y restauraciones de disilicato de litio. Esta especialización en estética dental la capacita para transformar sonrisas mediante técnicas mínimamente invasivas que preservan la estructura dental natural. Actualmente se encuentra ampliando sus conocimientos con estudios en ortodoncia, lo que enriquecerá aún más su capacidad para ofrecer tratamientos integrales.\n\nLa Dra. Carmen se caracteriza por su meticulosidad artística y su ojo clínico para los detalles estéticos, cualidades que, unidas a su trato cálido y comprensivo, crean un ambiente donde cada paciente se siente cómodo y confiado. Su filosofía se basa en escuchar las expectativas de cada persona para diseñar sonrisas únicas que reflejen su personalidad, utilizando las técnicas más conservadoras y los materiales más duraderos para lograr resultados que combinan belleza, función y longevidad.",
+    experience: "8+ años",
     education: [
       "Grado en Odontología - Universidad Europea de Madrid",
-      "Experto en Ortodoncia Interceptiva y Ortodoncia Clínica - Universidad Católica San Antonio de Murcia",
-      "Máster en Ortodoncia Clínica, Ortopedia Dentofacial y Alineadores - Universidad Católica San Antonio de Murcia"
+      "Formación en Estética Dental y Diseño de Sonrisa",
+      "Cursos especializados en Rehabilitación Oral",
+      "Estudios en curso: Ortodoncia - Universidad Católica San Antonio de Murcia"
     ],
     specializations: [
       "Odontología general", 
-      "Ortodoncista",
-      "Certificación Invisalign",
-      "Certificación Alineadent", 
-      "Certificación HeySmile",
-      "Ortodoncia Interceptiva"
+      "Diseño de sonrisa",
+      "Carillas de composite",
+      "Coronas de circonio", 
+      "Disilicato de litio",
+      "Estética dental",
+      "Rehabilitación oral"
     ]
   },
   /*{
@@ -62,7 +64,7 @@ const teamMembers = [
     aiHint: "professional woman smiling"
   },*/
   {
-    name: "Raquel", 
+    name: "Raquel Cisneros", 
     specialty: "Higienista Dental",
     description: "Profesional empática y comprometida con la excelencia en higiene bucodental. Su formación en enfermería y especialización dental la convierten en una experta integral en cuidado del paciente.",
     avatar: "/images/equipo/raquel.JPEG",
