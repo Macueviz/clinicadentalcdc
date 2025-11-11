@@ -6,6 +6,7 @@ import PiePagina from '@/componentes/PiePagina';
 import { Toaster } from '@/componentes/ui/toaster';
 import BotonWhatsApp from '@/componentes/BotonWhatsApp';
 import BannerCookies from '@/componentes/BannerCookies';
+import BannerPromocion from '@/componentes/BannerPromocion';
 
 export const metadata: Metadata = {
   title: 'Clínica Dental Cuevas | Implantes y Ortodoncia en Torre del Mar',
@@ -135,6 +136,7 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('min-h-screen bg-background font-body antialiased')}>
+        <BannerPromocion />
         <div className="relative flex min-h-screen flex-col">
           <Cabecera />
           <main className="flex-1">{children}</main>
