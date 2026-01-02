@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong>Nombre:</strong> cuevadent S.L</li>
                   <li><strong>Dirección:</strong> Av. de Andalucía, 149, 29740 Torre del Mar, Málaga</li>
                   <li><strong>Teléfono:</strong> +34 669 312 898</li>
-                  <li><strong>Email DPD:</strong> privacidad@clinicadentalcdcuevas.com</li>
+                  <li><strong>Email RGPD:</strong> privacidad@clinicadentalcdcuevas.com</li>
                 </ul>
           </div>
             </CardContent>

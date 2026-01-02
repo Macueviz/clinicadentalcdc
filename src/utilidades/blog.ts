@@ -52,6 +52,23 @@ const articulos: Articulo[] = [
       <p class="mt-4">Si estás pensando en alinear tus dientes, la ortodoncia invisible puede ser la solución perfecta para ti. ¡Consúltanos!</p>
     `,
   },
+  {
+    slug: "revisiones-dentales",
+    title: "Revisiones Dentales en Málaga: La Clave para una Sonrisa Sana",
+    description: "Descubre por qué las revisiones dentales son importantes.",
+    author: "Dr. Javier Cuevas",
+    date: "2026-01-02",
+    image: "/images/pexels-karolina-grabowska-6627523.jpg",
+    imageHint: "revisión dental",
+    content: `
+      <h3 class="font-bold text-lg mt-4 mb-2">Por qué es importante visitar al dentista aunque no tengas dolor</h3>
+      <p>En Clínica Dental Cuevas, en Málaga, vemos a diario pacientes que acuden a consulta cuando el problema ya está avanzado. Sin embargo, muchas de las patologías dentales más frecuentes pueden prevenirse o tratarse de forma sencilla gracias a las revisiones periódicas..</p>
+      
+      <p>Durante una revisión dental completa, se evalúa el estado de los dientes, las encías y los tejidos blandos de la boca. Problemas como la caries, la gingivitis o el desgaste dental pueden desarrollarse sin causar molestias en sus primeras fases, por lo que solo un diagnóstico profesional permite detectarlos a tiempo.</p>
+      <p>Además, las revisiones suelen complementarse con una limpieza dental profesional, fundamental para eliminar el sarro acumulado y prevenir la inflamación de encías, el sangrado y el mal aliento.</p>
+      <p>En nuestra clínica dental en Málaga recomendamos realizar una revisión al menos una vez al año, o cada seis meses en pacientes con mayor riesgo. La prevención no solo protege tu salud bucodental, sino que evita tratamientos más complejos en el futuro.</p>
+    `,
+  },
 ];
 
 export async function obtenerArticulos(): Promise<Articulo[]> {

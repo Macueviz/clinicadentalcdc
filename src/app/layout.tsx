@@ -136,7 +136,7 @@ export default function RootLayout({
         />
       </head>
       <body className={cn('min-h-screen bg-background font-body antialiased')}>
-        <BannerPromocion />
+        {/* <BannerPromocion /> */}
         <div className="relative flex min-h-screen flex-col">
           <Cabecera />
           <main className="flex-1">{children}</main>
