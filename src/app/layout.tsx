@@ -7,6 +7,7 @@ import { Toaster } from '@/componentes/ui/toaster';
 import BotonWhatsApp from '@/componentes/BotonWhatsApp';
 import BannerCookies from '@/componentes/BannerCookies';
 import BannerPromocion from '@/componentes/BannerPromocion';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Clínica Dental Cuevas | Implantes y Ortodoncia en Torre del Mar',
@@ -58,15 +59,20 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
         
+        {/* Google Analytics - Implementación correcta para Next.js */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LRCYV8YSL6"
+          strategy="afterInteractive"
+          />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LRCYV8YSL6');
+            `}
+        </Script>
         {/* Schema Markup para SEO local */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRCYV8YSL6"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-LRCYV8YSL6');
-        </script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
