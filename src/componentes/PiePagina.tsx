@@ -46,7 +46,7 @@ export default function PiePagina() {
               <li className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
                 <a 
-                  href="https://www.google.com/maps?q=Av.+de+Andalucía,+149,+29740+Torre+del+Mar,+Málaga"
+                  href="https://www.google.com/maps?q=36.739150, -4.098340"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary"

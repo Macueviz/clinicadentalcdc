@@ -59,6 +59,14 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
         
         {/* Schema Markup para SEO local */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LRCYV8YSL6"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-LRCYV8YSL6');
+        </script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -83,8 +91,8 @@ export default function RootLayout({
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 36.74079637125684,
-                "longitude": -4.097555824211491
+                "latitude": 36.73915,
+                "longitude": -4.09833
               },
               "openingHours": [
                 "Mo-Fr 09:00-14:00",
