@@ -70,7 +70,7 @@ export default function ContactPage() {
           <h2 className="text-2xl font-headline font-bold mb-6">Encuéntranos en Torre del Mar</h2>
           <div className="rounded-lg overflow-hidden aspect-video shadow-md">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d280.78638801444714!2d-4.098645298677352!3d36.7390508536875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7247d16d0a4577%3A0x3a21c63b77180243!2sCl%C3%ADnica%20Dental%20Cuevas!5e1!3m2!1ses!2ses!4v1778785883236!5m2!1ses!2ses"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d160.4490210769209!2d-4.0984541930320555!3d36.73909867748607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7247d16d0a4577%3A0x3a21c63b77180243!2sCl%C3%ADnica%20Dental%20Cuevas!5e1!3m2!1ses!2sus!4v1778788096759!5m2!1ses!2sus"
               width="100%"
               height="100%"
               style={{ border: 0 }}
