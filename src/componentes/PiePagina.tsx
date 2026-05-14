@@ -46,7 +46,7 @@ export default function PiePagina() {
               <li className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
                 <a 
-                  href="https://www.google.com/maps?q=36.7390987,-4.0984542,37m"
+                  href="https://www.google.com/maps?q=36.739098677486,-4.09845419"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary"
